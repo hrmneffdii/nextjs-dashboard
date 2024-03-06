@@ -1,0 +1,17 @@
+By default, Next.js prerenders routes to improve performance, 
+this is called Static Rendering. So if your data changes,
+it won't be reflected in your dashboard.
+
+Pada dasarnya, untuk meningkatkan performa, secara default next js itu mendukung pre-renders route yang
+artinya, data akan dirender pada routenya sebelum digunakan.
+
+Umumnya, javascript menggunakan sistem blocking sehingga code dibawahnya akan dijalankan
+setelah code diatasnya berjalan, hal ini sebenarnya tidak buruk dan tentunya bisa digunakan 
+pada kasus tertentu seperti kita harus memiliki id profile dan melanjutkannya untuk mengambil 
+yang data-data lainnya. Tetapi disisi lain, hal ini akan mempengaruhi waktu running karena code yang
+dieksekusi berjalan secara sekuensial. Maka dari itu, kita bisa menggunakan promise.all untuk 
+mengatasi kasus sekuensial ini sehingga akibatnya, data yang diambil akan berjalan secara bersamaan.
+
+Lalu, ketika data diambil secara bersamaan, jika ada satu variabel yang memiliki waktu fetching 
+sangat lama, apa efeknya?
+
