@@ -84,4 +84,45 @@ Streaming component :
     - If the components rely on data fetching.
 
 
-Partial Rendering next...
+Partial Rendering next... because this is experimental, so i am not to writing this section.
+
+Adding Search and Pagination
+
+- Learn how to use the Next.js APIs: searchParams, usePathname, and useRouter.
+- Implement search and pagination using URL search params.
+
+Here's a breakdown of what's happening:
+
+    - ${pathname} is the current path, in your case, "/dashboard/invoices".
+    - As the user types into the search bar, params.toString() translates this input into a URL-friendly format.
+    - replace(${pathname}?${params.toString()}) updates the URL with the user's search data. For example, /dashboard/invoices?query=lee if the user searches for "Lee".
+    The URL is updated without reloading the page, thanks to Next.js's client-side navigation (which you learned about in the chapter on navigating between pages.
+
+useSearchParams- Allows you to access the parameters of the current URL. For example, the search params for this URL /dashboard/invoices?page=1&query=pending would look like this: {page: '1', query: 'pending'}.
+usePathname - Lets you read the current URL's pathname. For example, for the route /dashboard/invoices, usePathname would return '/dashboard/invoices'.
+
+    defaultValue vs. value / Controlled vs. Uncontrolled
+
+    If you're using state to manage the value of an input, you'd use the value attribute to make it a controlled component. This means React would manage the input's state.
+
+    However, since you're not using state, you can use defaultValue. This means the native input will manage its own state. This is okay since you're saving the search query to the URL instead of state.
+
+
+    Best practice: Debouncing
+
+Congratulations! You've implemented search with Next.js! But there's something you can do to optimize it.
+
+Inside your handleSearch function, add the following console.log:
+
+Searching... E
+Searching... Em
+Searching... Emi
+Searching... Emil
+
+You're updating the URL on every keystroke, and therefore querying your database on every keystroke! This isn't a problem as our application is small, but imagine if your application had thousands of users, each sending a new request to your database on each keystroke.
+
+Debouncing is a programming practice that limits the rate at which a function can fire. In our case, you only want to query the database when the user has stopped typing.
+
+
+Adding pagination
+
