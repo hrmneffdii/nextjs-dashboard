@@ -74,4 +74,14 @@ A few things are happening here:
 
 Streaming component : 
 
+    -loading.tsx
 
+    -Suspense
+    Where you place your Suspense boundaries will depend on a few things:
+
+    - How you want the user to experience the page as it streams.
+    - What content you want to prioritize.
+    - If the components rely on data fetching.
+
+
+Partial Rendering next...
