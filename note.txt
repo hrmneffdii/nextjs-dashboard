@@ -15,3 +15,47 @@ mengatasi kasus sekuensial ini sehingga akibatnya, data yang diambil akan berjal
 Lalu, ketika data diambil secara bersamaan, jika ada satu variabel yang memiliki waktu fetching 
 sangat lama, apa efeknya?
 
+- What is Static Rendering?
+
+Dengan rendering statis, pengambilan dan rendering data terjadi di server pada waktu 
+build (saat Anda menerapkan) atau selama validasi ulang. 
+Hasilnya kemudian dapat didistribusikan dan di-cache di Content Delivery Network (CDN)
+
+Whenever a user visits your application, the cached result is served. There are a couple of benefits of static rendering:
+
+    Faster Websites - Prerendered content can be cached and globally distributed. This ensures that users around the world can access your website's content more quickly and reliably.
+    Reduced Server Load - Because the content is cached, your server does not have to dynamically generate content for each user request.
+    SEO - Prerendered content is easier for search engine crawlers to index, as the content is already available when the page loads. This can lead to improved search engine rankings.
+
+Static rendering is useful for UI with no data or data that is shared across users, such as a static blog post or a product page. It might not be a good 
+fit for a dashboard that has personalized data that is regularly updated.
+
+- What is Dynamic Rendering?
+
+With dynamic rendering, content is rendered on the server for each user at request time (when the user visits the page).
+There are a couple of benefits of dynamic rendering:
+
+
+    Real-Time Data - Dynamic rendering allows your application to display real-time or frequently updated data. This is ideal for applications where data changes often.
+    User-Specific Content - It's easier to serve personalized content, such as dashboards or user profiles, and update the data based on user interaction.
+    Request Time Information - Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters.
+
+
+Anda dapat menggunakan API Next.js yang disebut stable_noStore di dalam Komponen Server atau fungsi pengambilan data untuk tidak ikut serta dalam rendering statis. 
+Mari tambahkan ini.
+
+Note: unstable_noStore is an experimental API and may change in the future. If you prefer to use a stable API in your own projects, 
+you can also use the Segment Config Option export const dynamic = "force-dynamic".
+
+Here, you've added an artificial 3-second delay to simulate a slow data fetch. The result is that now your whole page
+ is blocked while the data is being fetched.
+
+Dengan rendering dinamis, aplikasi Anda hanya secepat pengambilan data paling lambat.
+
+- What is streaming data?
+
+Dengan streaming, Anda dapat mencegah permintaan data yang lambat memblokir seluruh halaman Anda. 
+Hal ini memungkinkan pengguna untuk melihat dan berinteraksi dengan bagian halaman tanpa menunggu semua data dimuat sebelum UI apa pun dapat ditampilkan kepada pengguna.
+Diagram menunjukkan waktu dengan pengambilan data berurutan dan pengambilan data paralel.
+
+
