@@ -137,4 +137,6 @@ Handling error
 
 Improving accesbility
 
+Authentication # main topik
 
+So, authentication checks who you are, and authorization determines what you can do or access in the application.
