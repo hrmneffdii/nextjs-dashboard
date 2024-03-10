@@ -132,3 +132,7 @@ Mutating data
 
 revalidatePath untuk menghapus cache pada page yaitu dituju
 redirect yaitu langsung menuju halaman yang dituju
+
+Handling error
+
+
