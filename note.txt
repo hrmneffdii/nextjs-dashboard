@@ -126,3 +126,7 @@ Debouncing is a programming practice that limits the rate at which a function ca
 
 Adding pagination
 
+pokoknya gitu..
+
+Mutating data
+
